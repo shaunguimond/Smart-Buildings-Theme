@@ -23,13 +23,11 @@ import FeaturedMedia from "./featured-media";
  *
  * @returns The {@link Post} element rendered.
  */
-const Post = ({ state, actions, libraries }) => {
+const Page = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
   // Get the data of the post.
   const post = state.source[data.type][data.id];
-  // Get the data of the author.
-  const author = state.source.author[post.author];
   // Get a human readable date.
   const date = new Date(post.date);
 
@@ -50,18 +48,10 @@ const Post = ({ state, actions, libraries }) => {
   return data.isReady ? (
     <Container>
       <div>
-        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
         {/* Hide author and date on pages */}
         {!data.isPage && (
           <div>
-            {author && (
-              <StyledLink link={author.link}>
-                <Author>
-                  By <b>{author.name}</b>
-                </Author>
-              </StyledLink>
-            )}
             <DateWrapper>
               {" "}
               on <b>{date.toDateString()}</b>
@@ -91,7 +81,7 @@ const Post = ({ state, actions, libraries }) => {
   ) : null;
 };
 
-export default connect(Post);
+export default connect(Page);
 
 const Container = styled.div`
   margin: 0;

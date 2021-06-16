@@ -18,25 +18,29 @@ const settings = {
               "/"
             ],
             [
-              "Nature",
-              "/category/nature/"
+              "Products and Services",
+              "/products-and-services/"
             ],
             [
-              "Travel",
-              "/category/travel/"
+              "Activity",
+              "/activity/"
             ],
             [
-              "Japan",
-              "/tag/japan/"
+              "About",
+              "/about/"
             ],
             [
-              "About Us",
-              "/about-us/"
+              "Contact",
+              "/contact/"
+            ],
+            [
+              "Book a Meeting",
+              "https://outlook.office365.com/owa/calendar/smartbuildingsio@smart-buildings.io/bookings/"
             ]
           ],
           "featured": {
-            "showOnList": false,
-            "showOnPost": false
+            "showOnList": true,
+            "showOnPost": true
           }
         }
       }
@@ -45,7 +49,9 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://test.frontity.org"
+          "url": "https://smart-buildings.tempurl.host/",
+          "homepage": "/home",
+          "postsPage": "/blog"
         }
       }
     },

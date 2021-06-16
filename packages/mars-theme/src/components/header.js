@@ -8,12 +8,11 @@ const Header = ({ state }) => {
     <>
       <Container>
         <StyledLink link="/">
-          <Title>{state.frontity.title}</Title>
+          <Title><img src="https://smart-buildings.tempurl.host/wp-content/uploads/2021/06/logo.png"></img></Title>
         </StyledLink>
-        <Description>{state.frontity.description}</Description>
-        <MobileMenu />
+        <Nav />
       </Container>
-      <Nav />
+      <MobileMenu />
     </>
   );
 };
@@ -22,19 +21,22 @@ const Header = ({ state }) => {
 export default connect(Header);
 
 const Container = styled.div`
-  width: 848px;
-  max-width: 100%;
+  width: 100%;
   box-sizing: border-box;
-  padding: 24px;
+  padding: 10px 24px;
   color: #fff;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
+  margin: 0px 12.5vw;
 `;
 
-const Title = styled.h2`
+const Title = styled.div`
   margin: 0;
-  margin-bottom: 16px;
+
+  img {
+    max-height: 50px;
+  }
 `;
 
 const Description = styled.h4`
@@ -44,4 +46,5 @@ const Description = styled.h4`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+
 `;

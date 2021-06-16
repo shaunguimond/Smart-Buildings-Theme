@@ -25,7 +25,7 @@ const MenuModal = ({ state }) => {
 };
 
 const MenuOverlay = styled.div`
-  background-color: #1f38c5;
+  background-color: rgba(0,0,0,0.9);
   width: 100vw;
   height: 100vh;
   overflow: hidden auto;
@@ -33,10 +33,12 @@ const MenuOverlay = styled.div`
   z-index: 2;
   top: 0;
   left: 0;
+  backdrop-filter: blur(8px);
 `;
 
 const MenuContent = styled.div`
   z-index: 3;
+  color: white;
 `;
 
 const MenuLink = styled(Link)`

@@ -34,9 +34,13 @@ const NavContainer = styled.nav`
   padding: 0 24px;
   margin: 0;
   overflow-x: auto;
+  justify-content: flex-end;
+  align-items: flex-end;
 
-  @media screen and (max-width: 560px) {
+  @media screen and (max-width: 980px) {
     display: none;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -44,7 +48,7 @@ const NavItem = styled.div`
   padding: 0;
   margin: 0 16px;
   color: #fff;
-  font-size: 0.9em;
+  font-size: 1.125em;
   box-sizing: border-box;
   flex-shrink: 0;
 
@@ -55,7 +59,7 @@ const NavItem = styled.div`
     border-bottom-color: transparent;
     /* Use for semantic approach to style the current link */
     &[aria-current="page"] {
-      border-bottom-color: #fff;
+      border-bottom-color: #ffe115;
     }
   }
 
