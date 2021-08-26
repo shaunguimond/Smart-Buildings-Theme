@@ -5,13 +5,11 @@ import Particles from "reactparticles.js";
 
 const ParticleHeader = () => {
     
-    if (typeof window === "undefined") return null;
-    
     return (
         <ParticleContainer>
             <Particles
                 id="particle-home-header"
-                config="particles/config-1.json"
+                config="Particles/config-1.json"
                 style={{
                     width: "100%",
                     height: "100%",
@@ -41,9 +39,6 @@ const ParticleContainer = styled.div`
     width: 100%;
     height: 60vh;
 
-    @media only screen and (max-width: 980px) {
-        height: calc(100vh - 74px);
-    }
 `;
 
 const TextContainer = styled.div`
@@ -65,6 +60,8 @@ const TextContainer = styled.div`
 
     @media only screen and (max-width: 980px) {
         top: 25%;
+        left: 12.5%;
+        max-width: 75vw;
 
         h1 {
             font-size: 1.725rem;

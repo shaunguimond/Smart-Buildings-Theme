@@ -8,6 +8,7 @@ import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
+import Footer from "./footer";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -47,6 +48,8 @@ const Theme = ({ state }) => {
           <PageError when={data.isError} />
         </Switch>
       </Main>
+
+      <Footer />
     </>
   );
 };
@@ -63,6 +66,35 @@ const globalStyles = css`
     color: inherit;
     text-decoration: none;
   }
+
+  h1 {
+    font-size: 2.125em;
+  }
+
+  h2 {
+    font-size: 1.725em;
+  }
+
+  h3 {
+    font-size: 1.325em;
+  }
+  
+  h4 {
+    font-size: 1.225em;
+    font-weight: 800;
+    
+  }
+
+  h5 {
+    font-size: 1.175em;
+
+  }
+
+  h6 {
+    font-size: 0.925em;
+    margin-top: 0.225em;
+    margin-bottom: 0.225em;
+  }
 `;
 
 const HeadContainer = styled.div`
@@ -70,6 +102,7 @@ const HeadContainer = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: rgba(0,0,0,0.9);
+  backdrop-filter: blur(8px);
   position: sticky;
   top: 0px;
   z-index: 69;

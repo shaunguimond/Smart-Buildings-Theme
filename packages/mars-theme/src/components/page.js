@@ -61,9 +61,12 @@ const Page = ({ state, actions, libraries }) => {
       </div>
 
       {/* Look at the settings to see if we should include the featured image */}
-      {state.theme.featured.showOnPost && (
-        <FeaturedMedia id={post.featured_media} />
-      )}
+      {state.theme.featured.showOnPost && !data.isHome ? (
+        <FeaturedImageContainer>
+          <FeaturedMedia id={post.featured_media} />
+          <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+        </FeaturedImageContainer>
+      ): null }
 
       {data.isAttachment ? (
         // If the post is an attachment, just render the description property,
@@ -85,15 +88,23 @@ export default connect(Page);
 
 const Container = styled.div`
   margin: 0;
-  padding: 24px;
+`;
+
+const FeaturedImageContainer = styled.div`
+
 `;
 
 const Title = styled.h1`
+  position: relative;
   margin: 0;
-  margin-top: 24px;
+  margin-top: calc(-25vh - 74px);
   margin-bottom: 8px;
-  color: rgba(12, 17, 43);
+  color: white;
+  text-align: center;
+  margin-bottom: calc(25vh + 74px)
+
 `;
+
 
 const StyledLink = styled(Link)`
   padding: 15px 0;
@@ -118,25 +129,27 @@ const DateWrapper = styled.p`
 const Content = styled.div`
   color: rgba(12, 17, 43, 0.8);
   word-break: break-word;
+  margin: 12px 12px 0px 12px;
+  min-height: 75vh;
+
+  @media only screen and (min-width: 980px) {
+    margin: 24px 12.5vw 0px 12.5vw;
+  }
 
   * {
     max-width: 100%;
   }
 
-  p {
-    line-height: 1.6em;
-  }
-
-  img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
+  p{
+    line-height: 1.25em;
   }
 
   figure {
     margin: 24px auto;
-    /* next line overrides an inline style of the figure element. */
-    width: 100% !important;
+
+    img {
+      height: auto;
+    }
 
     figcaption {
       font-size: 0.7em;
@@ -235,13 +248,8 @@ const Content = styled.div`
     }
   }
 
-  p {
-    line-height: 39.6px;
-  }
   figure {
     margin: 24px auto;
-    /* Next line overrides an inline style of the figure element. */
-    width: 100%;
     figcaption {
       display: block !important;
       font-size: 0.71111em;
@@ -275,11 +283,7 @@ const Content = styled.div`
     font-family: monospace, monospace;
     font-size: 1em;
   }
-  a {
-    transition: color 110ms ease-in-out;
-    color: ${({ theme }) => theme.color};
-    text-decoration: underline;
-  }
+
   /* WordPress Core Align Classes */
   @media (min-width: 420px) {
     img.aligncenter,
@@ -300,22 +304,7 @@ const Content = styled.div`
       float: left;
       margin-right: 24px;
     }
-  }
-  & .wp-block-image img {
-    display: block;
-    width: 100%;
-    display: block;
-    padding: 0.33px;
-  }
-  & .wp-block-image {
-    
-    box-shadow: 0 6.4px 14.4px 0 rgba(0,0,0,.132), 0 1.2px 3.6px 0 rgba(0,0,0,.108);
-  }
-  @media (prefers-color-scheme: dark) {
-    & .wp-block-image {
-      box-shadow: 0 6.4px 14.4px 0 rgba(256,256,256,.132), 0 1.2px 3.6px 0 rgba(256,256,256,.108);
-    }
-  }
+
   .wp-embed-aspect-16-9 {
     width: 100%;
     position: relative;
@@ -414,9 +403,6 @@ const Content = styled.div`
     line-height: 0;
     box-shadow: 0 0 0 0 transparent;
   }
-  & .gallery-item > div > a:focus {
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.color};
-  }
   /*Captions*/
   & .wp-caption {
     margin-bottom: calc(1.5 * 1rem);
@@ -452,6 +438,7 @@ const Content = styled.div`
   .wp-block-columns {
     display: flex;
     flex-wrap: wrap;
+    height: fit-content;
   }
   @media (min-width: 782px) {
     .wp-block-columns {
@@ -703,4 +690,301 @@ const Content = styled.div`
 	width: auto;
 	z-index: 100000;
 }
+
+.is-vertically-aligned-center {
+  align-content: center;
+}
+
+.wp-block-image {
+    width: 100%;
+
+    figure {
+      width: fit-content;
+    }
+  }
+
+.wp-block-column.is-vertically-aligned-bottom, .wp-block-column.is-vertically-aligned-center, .wp-block-column.is-vertically-aligned-top {
+    width: 100%;
+}
+
+.wp-block-column.is-vertically-aligned-center {
+    -ms-grid-row-align: center;
+    align-self: center;
+
+}
+
+// WORDPRESS BUTTONS
+
+// This variable is repeated across Button, Buttons, and Buttons editor styles.
+$blocks-block__margin: 0.5em;
+
+.wp-block-buttons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	&.is-vertical {
+		flex-direction: column;
+		> .wp-block-button {
+			/*rtl:ignore*/
+			margin-right: 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// Increased specificity to override blocks default margin.
+	> .wp-block-button {
+		display: inline-block;
+		/*rtl:ignore*/
+		margin-left: 0;
+		/*rtl:ignore*/
+		margin-right: $blocks-block__margin;
+		margin-bottom: $blocks-block__margin;
+
+		&:last-child {
+			/*rtl:ignore*/
+			margin-right: 0;
+		}
+	}
+
+	&.is-content-justification-left {
+		justify-content: flex-start;
+		&.is-vertical {
+			align-items: flex-start;
+		}
+	}
+
+	&.is-content-justification-center {
+		justify-content: center;
+		&.is-vertical {
+			align-items: center;
+		}
+	}
+
+	&.is-content-justification-right {
+		justify-content: flex-end;
+
+		> .wp-block-button {
+			/*rtl:ignore*/
+			margin-left: $blocks-block__margin;
+			/*rtl:ignore*/
+			margin-right: 0;
+
+			&:first-child {
+				/*rtl:ignore*/
+				margin-left: 0;
+			}
+		}
+
+		&.is-vertical {
+			align-items: flex-end;
+		}
+	}
+
+	&.is-content-justification-space-between {
+		justify-content: space-between;
+	}
+
+	// Kept for backward compatibility.
+	&.aligncenter {
+		text-align: center;
+	}
+	&.alignleft .wp-block-button {
+		/*rtl:ignore*/
+		margin-left: 0;
+		/*rtl:ignore*/
+		margin-right: $blocks-block__margin;
+
+		&:last-child {
+			/*rtl:ignore*/
+			margin-right: 0;
+		}
+	}
+	&.alignright .wp-block-button {
+		/*rtl:ignore*/
+		margin-right: 0;
+		/*rtl:ignore*/
+		margin-left: $blocks-block__margin;
+
+		&:first-child {
+			/*rtl:ignore*/
+			margin-left: 0;
+		}
+	}
+
+	// Back compat: Inner button blocks previously had their own alignment
+	// options. Forcing them to 100% width in the flex container replicates
+	// that these were block level elements that took up the full width.
+	//
+	// This back compat rule is ignored if the user decides to use the
+	// newer justification options on the button block, hence the :not.
+	//
+	// Disable the stylelint rule, otherwise this selector is ugly!
+	/* stylelint-disable indentation */
+	&:not(
+		.is-content-justification-space-between,
+		.is-content-justification-right,
+		.is-content-justification-left,
+		.is-content-justification-center
+	) .wp-block-button.aligncenter {
+	/* stylelint-enable indentation */
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: $blocks-block__margin;
+		width: 100%;
+	}
+}
+
+// Legacy buttons that did not come in a wrapping container.
+.wp-block-button.aligncenter {
+	text-align: center;
+}
+
+// CUSTOM CLASSES 
+
+.wp-block-button {  
+  margin: 15px;
+
+  a {
+    background-color: rgba(0, 0, 0, 0.9);
+    border: rgb(11, 12, 34) 1px solid;
+    transition: border-bottom 0.3s linear;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+  }
+}
+
+.wp-block-button:hover {
+  a{
+  border-bottom: #ffe115 1px solid;
+  opacity: 0.7;
+  }
+}
+@media only screen and (min-width: 780px) {
+.wp-block-button:first-of-type {
+  margin-right: 25px;
+}
+
+
+}
+
+.innovators-container {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-gap: 24px;
+margin-bottom: 48px;
+margin-top: 24px;
+
+.wp-block-column {
+  margin-left: 0px;
+}
+
+img {
+  height: 100%;
+  width: auto;
+  position: relative;
+}
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  p, input, textarea {
+    width: 100%;
+
+  }
+}
+
+input[type=submit] {
+  background-color: rgba(0, 0, 0, 0.9);
+  border: rgb(11, 12, 34) 1px solid;
+  transition: border-bottom 0.3s linear;
+
+}
+
+input[type=submit]:hover {
+  border-bottom: #ffe115 1px solid;
+  opacity: 0.7;
+}
+
+.contact-form {
+  border-radius: 8px;
+  color: white;
+  
+}
+
+.services-clipped {
+  clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+  background-color: rgb(11, 12, 34);
+  aspect-ratio: 1/1;
+
+
+  figure {
+    padding: 25%;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.service-steps-container {
+
+
+  .service-steps {
+
+    .wp-block-column:first-of-type {
+        flex-basis: 300px;
+        min-width: 250px;
+
+      .service-steps-1 {
+        background-color: rgb(11, 12, 34);
+        border-radius: 50%;
+        color: white;
+        height: 250px;
+        width: 250px;
+    
+        .wp-block-group__inner-container {
+          display: flex;
+          height: 100%;
+          align-items: center;
+    
+          p {
+            width: 100%;
+            height: fit-content;
+            font-size: 56px;
+          }
+        }
+    
+      }
+
+    }
+    .wp-block-column:nth-of-type(2) {
+      flex-basis: 100%;
+    }
+    }
+
+.service-steps:nth-of-type(3) {
+  margin-left: 40px;
+}
+.service-steps:nth-of-type(4) {
+  margin-left: 80px;
+}
+.service-steps:nth-of-type(5) {
+  margin-left: 120px;
+}
+}
+
 `;
