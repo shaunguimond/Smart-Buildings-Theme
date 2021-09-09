@@ -9,7 +9,7 @@ const Footer = () => {
         <Container>
             <GridContainer>
                 <GridItem>
-                    <h5>Quick Links</h5>
+                    <h6>Quick Links</h6>
                     <ul>
                         <li><a href="/services">Services</a></li>
                         <li><a href="">Activity</a></li>
@@ -20,7 +20,7 @@ const Footer = () => {
                 </GridItem>
 
                 <GridItem>
-                    <h5>Get in Touch</h5>
+                    <h6>Get in Touch</h6>
                     <ul>
                         <li><a href="tel:1-(844)-857-6278">p: 1-(844)-857-6278</a></li>
                         <li><a href="tel:(613)-800-7107">f: (613)-800-7107</a></li>

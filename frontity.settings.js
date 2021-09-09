@@ -2,9 +2,9 @@ const settings = {
   "name": "smart-buildings-theme",
   "state": {
     "frontity": {
-      "url": "https://test.frontity.org",
-      "title": "Test Frontity Blog",
-      "description": "WordPress installation for Frontity development"
+      "url": "https://smart-buildings-theme-shaunguimond.vercel.app",
+      "title": "Smart-Buildings.io",
+      "description": "Build a new kind of Decentralized Building"
     }
   },
   "packages": [
@@ -20,10 +20,6 @@ const settings = {
             [
               "Services",
               "/services/"
-            ],
-            [
-              "Activity",
-              "/activity/"
             ],
             [
               "About",

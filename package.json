@@ -25,6 +25,6 @@
     "@frontity/wp-source": "^1.11.5",
     "frontity": "^1.16.0",
     "frontity-contact-form-7": "^0.1.7",
-    "reactparticles.js": "^2.0.1"
+    "react-particles-js": "^3.5.3"
   }
 }

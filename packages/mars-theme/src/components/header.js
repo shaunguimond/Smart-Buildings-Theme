@@ -8,7 +8,7 @@ const Header = ({ state }) => {
     <>
       <Container>
         <StyledLink link="/">
-          <Title><img src="https://smart-buildings.tempurl.host/wp-content/uploads/2021/06/logo.png"></img></Title>
+          <Title><img height="50px" width="275px" src="https://smart-buildings.tempurl.host/wp-content/uploads/2021/09/logo-white.png"></img></Title>
         </StyledLink>
         <Nav />
       </Container>

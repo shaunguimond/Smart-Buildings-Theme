@@ -5,8 +5,8 @@ import { connect, styled } from "frontity";
 const Home = ({}) => {
 
 return (
-    <Container>
-        <ParticleHeader /> 
+    <Container> {/*
+    <ParticleHeader /> */}
         <Page/>
     </Container>
     
