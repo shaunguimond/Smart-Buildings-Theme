@@ -987,4 +987,29 @@ input[type=submit]:hover {
 }
 }
 
+.alignfull {
+  max-width: 100vw;
+  width: 100vw !important;
+}
+
+.alignfull {
+  max-width: 100vw;
+  margin-left: -12px;
+  margin-right: -12px;
+  margin-top: -12px;
+  width: 100vw !important;
+}
+
+@media only screen and (min-width: 980px) {
+  .alignfull {
+    margin-left: -12.5vw !important;
+    margin-right: -12.5vw !important;
+    margin-top: -24px !important;
+  }
+}
+
+
+.wp-block-buttons.justify-items-center {
+  justify-content: center;
+}
 `;

@@ -109,11 +109,11 @@ const HeadContainer = styled.div`
 `;
 
 const Main = styled.div`
-  display: flex;
-  justify-content: center;
+  display: block;
   background-image: linear-gradient(
     180deg,
     rgba(66, 174, 228, 0.1),
     rgba(66, 174, 228, 0)
   );
+  overflow-x: hidden;
 `;

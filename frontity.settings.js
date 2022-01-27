@@ -9,6 +9,14 @@ const settings = {
   },
   "packages": [
     {
+      "name": "@frontity/google-analytics",
+      "state": {
+        "googleAnalytics": {
+          "trackingId": "G-0WRXPPH9XB",
+        },
+      },
+    },
+    {
       "name": "@frontity/mars-theme",
       "state": {
         "theme": {
@@ -20,10 +28,6 @@ const settings = {
             [
               "Services",
               "/services/"
-            ],
-            [
-              "About",
-              "/about/"
             ],
             [
               "Contact",
@@ -45,7 +49,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://smart-buildings.tempurl.host/",
+          "url": "https://smart-buildings.parleedigital.ca",
           "homepage": "/home",
           "postsPage": "/blog"
         }
