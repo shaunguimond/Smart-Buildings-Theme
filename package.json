@@ -7,7 +7,7 @@
     "frontity"
   ],
   "engines": {
-    "node": ">=10.0.0",
+    "node": ">=16.x",
     "npm": ">=6.0.0"
   },
   "scripts": {
@@ -17,14 +17,14 @@
   },
   "prettier": {},
   "dependencies": {
-    "@aamodtgroup/frontity-contact-form-7": "^0.2.6",
-    "@frontity/core": "^1.14.2",
+    "@aamodtgroup/frontity-contact-form-7": "^0.2.14",
+    "@frontity/core": "^1.16.0",
     "@frontity/google-analytics": "^2.1.0",
     "@frontity/html2react": "^1.7.0",
     "@frontity/mars-theme": "./packages/mars-theme",
-    "@frontity/tiny-router": "^1.4.2",
-    "@frontity/wp-source": "^1.11.5",
-    "frontity": "^1.16.0",
+    "@frontity/tiny-router": "^1.4.4",
+    "@frontity/wp-source": "^1.11.7",
+    "frontity": "^1.17.2",
     "frontity-contact-form-7": "^0.1.7"
   }
 }

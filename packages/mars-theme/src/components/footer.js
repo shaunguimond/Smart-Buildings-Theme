@@ -22,7 +22,7 @@ const Footer = () => {
                 <GridItem>
                     <h6>Get in Touch</h6>
                     <ul>
-                        <li><a href="tel:1-(844)-857-6278">p: 1-(844)-857-6278</a></li>
+                        <li><a href="tel:1-(613)-738-0979">p: 1-(613)-738-0979</a></li>
                         <li><a href="tel:(613)-800-7107">f: (613)-800-7107</a></li>
                         <li><a href="mailto:info@smart-buildings.io">e: info@smart-buildings.io</a></li>
 
