@@ -29,6 +29,8 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-around;
   margin: 0px 12.5vw;
+
+  
 `;
 
 const Title = styled.div`
@@ -36,6 +38,22 @@ const Title = styled.div`
 
   img {
     max-height: 50px;
+  }
+
+  @media only screen and (max-width: 500px) {
+    img {
+      max-width: 200px;
+      max-height: 38px;
+      padding-top: 12px;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    img {
+      max-width: 150px;
+      max-height: 28px;
+      padding-top: 12px;
+    }
   }
 `;
 

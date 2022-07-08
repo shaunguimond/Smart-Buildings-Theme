@@ -41,6 +41,16 @@ const MenuToggle = styled.button`
     align-items: center;
     justify-content: center;
   }
+
+  @media (max-width: 500px) {
+    top: 20px;
+    right: 20px;
+  }
+
+  @media (max-width: 300px) {
+    top: 18px;
+    right: 10px;
+  }
 `;
 
 export default connect(MobileMenu);

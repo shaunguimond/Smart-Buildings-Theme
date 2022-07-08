@@ -46,8 +46,15 @@ const Container = styled.div`
     }
 
     @media only screen and (max-width: 500px) {
-        .particle-header .wp-block-cover__inner-container {
-            top: 12.5vh;
+
+        .particle-header {
+            margin: 0px 0px 0px 0px;
+
+            .wp-block-cover__inner-container {
+                width: calc(100% - 100px);
+                padding: 0px 12.5vw;
+                top: 18.5vh;
+            }
         }
     }
 
@@ -66,5 +73,18 @@ const Container = styled.div`
         }
     }
 
+    @media only screen and (max-width: 400px) {
+        .particle-header {
+            height: 75vh;
+        }
+
+    }
+
+    @media only screen and (max-width: 300px) {
+        .particle-header {
+            height: 110vh;
+        }
+
+    }
 `;
 

@@ -129,8 +129,152 @@ const DateWrapper = styled.p`
 const Content = styled.div`
   color: rgba(12, 17, 43, 0.8);
   word-break: break-word;
-  margin: 12px 12px 0px 12px;
   min-height: 75vh;
+
+
+ 
+
+
+  .services-clipped {
+    clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+    background-color: rgb(11, 12, 34);
+    aspect-ratio: 1/1;
+  
+  
+    figure {
+      padding: 25%;
+  
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .service-steps-container {
+
+
+    .service-steps {
+  
+      .wp-block-column:first-of-type {
+          flex-basis: 300px;
+          min-width: 250px;
+  
+        .service-steps-1 {
+          background-color: rgb(11, 12, 34);
+          border-radius: 50%;
+          color: white;
+          height: 250px;
+          width: 250px;
+  
+          
+      
+          .wp-block-group__inner-container {
+            display: flex;
+            height: 100%;
+            align-items: center;
+      
+            p {
+              width: 100%;
+              height: fit-content;
+              font-size: 56px;
+            }
+          }
+      
+        }
+  
+      }
+    }
+
+    .wp-block-column:nth-of-type(2) {
+      flex-basis: 100%;
+    }
+
+    .service-steps:nth-of-type(3) {
+      margin-left: 40px;
+    }
+    .service-steps:nth-of-type(4) {
+      margin-left: 80px;
+    }
+    .service-steps:nth-of-type(5) {
+      margin-left: 120px;
+    }
+  }
+
+      
+      
+  
+  
+  
+
+  @media only screen and (max-width: 500px) {
+    .service-steps-container {
+
+
+      .service-steps {
+
+        .has-text-align-center {
+          text-align: center;
+        }
+    
+        .wp-block-column:first-of-type {
+            flex-basis: 300px;
+            min-width: 250px;
+    
+          .service-steps-1 {
+            background-color: rgb(11, 12, 34);
+            border-radius: 50%;
+            color: white;
+            height: calc(100vw - 40vw);
+            width: calc(100vw - 40vw);
+            margin: 0px auto;
+    
+            
+        
+            .wp-block-group__inner-container {
+              display: flex;
+              height: 100%;
+              align-items: center;
+        
+              p {
+                width: 100%;
+                height: fit-content;
+                font-size: 56px;
+              }
+            }
+        
+          }
+    
+        }
+      }
+  
+      .wp-block-column:nth-of-type(2) {
+        flex-basis: 100%;
+      }
+  
+      .service-steps:nth-of-type(3) {
+        margin-left: 0px;
+        margin: 0px auto;
+      }
+      .service-steps:nth-of-type(4) {
+        margin-left: 0px;
+        margin: 0px auto;
+      }
+      .service-steps:nth-of-type(5) {
+        margin-left: 0px;
+        margin: 0px auto;
+      }
+    }
+  }
+
+
+
+& > div {
+  margin: 12px 12px 0px 12px
+}
+
+
+ 
 
   @media only screen and (min-width: 980px) {
     margin: 24px 12.5vw 0px 12.5vw;
@@ -924,69 +1068,6 @@ input[type=submit]:hover {
   
 }
 
-.services-clipped {
-  clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
-  background-color: rgb(11, 12, 34);
-  aspect-ratio: 1/1;
-
-
-  figure {
-    padding: 25%;
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
-.service-steps-container {
-
-
-  .service-steps {
-
-    .wp-block-column:first-of-type {
-        flex-basis: 300px;
-        min-width: 250px;
-
-      .service-steps-1 {
-        background-color: rgb(11, 12, 34);
-        border-radius: 50%;
-        color: white;
-        height: 250px;
-        width: 250px;
-    
-        .wp-block-group__inner-container {
-          display: flex;
-          height: 100%;
-          align-items: center;
-    
-          p {
-            width: 100%;
-            height: fit-content;
-            font-size: 56px;
-          }
-        }
-    
-      }
-
-    }
-    .wp-block-column:nth-of-type(2) {
-      flex-basis: 100%;
-    }
-    }
-
-.service-steps:nth-of-type(3) {
-  margin-left: 40px;
-}
-.service-steps:nth-of-type(4) {
-  margin-left: 80px;
-}
-.service-steps:nth-of-type(5) {
-  margin-left: 120px;
-}
-}
-
 .alignfull {
   max-width: 100vw;
   width: 100vw !important;
@@ -1012,4 +1093,8 @@ input[type=submit]:hover {
 .wp-block-buttons.justify-items-center {
   justify-content: center;
 }
+
+
+
+
 `;

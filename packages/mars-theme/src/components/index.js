@@ -106,6 +106,12 @@ const HeadContainer = styled.div`
   position: sticky;
   top: 0px;
   z-index: 69;
+
+  @media only screen and (max-width: 500px) {
+    & {
+      height: 80px;
+    }
+  }
 `;
 
 const Main = styled.div`
