@@ -3,7 +3,12 @@
     "builds": [
       {
         "src": "package.json",
-        "use": "@frontity/now"
+        "use": "@baalspots/now"
       }
-    ]
+    ],
+    "buildCommand": "node -v && npx frontity build && node -v",
+    "devCommand": "npx frontity dev",
+    "framework": null,
+    "installCommand": "npm i",
+    "outputDirectory": "build"
   }

@@ -18,6 +18,10 @@ const Footer = () => {
 
                     </ul>
                 </GridItem>
+                
+                <GridItem>
+                    <img height="100px" width="150px" src="https://smart-buildings.parleedigital.ca/wp-content/uploads/2024/05/KelownaBCCOC_16970_Kelowna-Chamber-Proud-Member.png.png"></img>
+                </GridItem>
 
                 <GridItem>
                     <h6>Get in Touch</h6>
@@ -63,10 +67,14 @@ const Container = styled.div`
 const GridContainer = styled.div`
     padding: 48px 24px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 32px;
     width: calc(100% - 80px);
     justify-items: center;
+
+    @media only screen and (max-width: 600px) {
+                grid-template-columns: 1fr ;
+        }
 `;
 
 const GridItem = styled.div`
